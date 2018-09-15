@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {# 框架的link标签 #}
+    {% include "part/head-meta-link.html" ignore missing with context %} 
+    
+    {% block link %} {# 放入link的位置 #} {% endblock %}
+    
+</head>
+<body>
+    {# 导航栏 #}
+    {% include "part/body-header.html" ignore missing with context %} 
+
+
+    {% block body %}
+    {# 这里写html代码 #}
+    {% endblock %}
+
+
+
+    {% include "part/body-script-src.html" ignore missing with context %}
+    {% block script %}
+    {# 导入的js内容 #}
+        
+    {% endblock %}
+
+</body>
+</html>
