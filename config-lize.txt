@@ -1,0 +1,15 @@
+git init
+git status
+git config --global user.email "lize240810@163.com"
+git config --global user.name "school-lize"
+# 绑定到远处仓库 github 上面必须存在Web这个仓库 而且需要为空
+git remote add Web https://github.com/lize240810/Web.git
+git remote -v
+touch READM.md
+vim READM.md
+git add READM.md
+git commit -m "自述文件"
+git log
+git status
+# 推送到指定仓库
+git push Web master
