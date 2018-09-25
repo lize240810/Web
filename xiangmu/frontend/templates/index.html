@@ -1,0 +1,56 @@
+{# 继承的也页面 #}
+{% extends "part/html_main.html" %}
+{# html的名字 #}
+{% block title %}主页{% endblock %}
+
+{# 存放link style 标签#}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+{% endblock %}
+
+
+{# 自己本页html的内容 #}
+{% block body %}
+    {% include "part/body-header.html" ignore missing with context %} 
+    <div class="am-container">
+        {# 文件路径 #}
+        <div class="path-line">
+            当前路径：
+            <ol class="am-breadcrumb">
+                <li><a href="javascript:;"  class="am-icon-home">主目录</a></li>
+                <li><a href="javascript:;">分类</a></li>
+                <li class="am-active">内容</li>
+            </ol>
+            <span class="sp-refresh am-fr" title="刷新">
+                <i class="am-icon-refresh"></i>
+            </span>
+            <span class="am-cf"></span>
+        </div>
+        <div class="button-line">
+            <button class="am-btn am-btn-warning am-btn-xs">
+                <i class="am-icon-plus am-icon-fw"></i>
+                新建文件夹
+            </button>
+            <input type="file" name="file" type="file">
+            <button class="am-btn am-btn-primary am-btn-xs">
+                <i class="am-icon-upload am-icon-fw"></i>
+                上传文件
+            </button>
+
+        </div>
+        <script type="text/javascript">
+            if(!window.GLOBAL) {
+                window.GLOBAL = {};
+            }
+            GLOBAL.USER_FOLDER_LIST_URL = "{{ url_for('view_user_folder_list') }}"
+        </script>
+        <!--在这里编写你的HTML代码-->
+        {% include "part/list-data.html" ignore missing with context %}
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    {# 导入的js内容 #}
+    <script type="text/javascript" src="static/js/index.js"></script>
+{% endblock %}

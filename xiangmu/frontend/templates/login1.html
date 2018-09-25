@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>云-文件注册登录</title>
+        {% include "part/head-meta-link.html" ignore missing with context %}
+        <link rel="stylesheet" type="text/css" href="static/css/login.css" />
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="am-g">
+                 <h1>云-文件</h1>
+
+                <p>简洁、高效的文档管理系统，让您管得住、方便查、带不走
+                    <br/>为您带来一种全新的电子文件管理方式</p>
+            </div>
+            <hr />
+        </div>
+        <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+            <section class="am-panel am-panel-secondary">
+                <header class="am-panel-hd">
+                    <button class="am-btn am-btn-secondary">
+                      <i class="am-icon-hand-paper-o"></i>
+                      登录
+                    </button>
+                    <button class="am-btn am-btn-secondary">
+                      <i class="am-icon-book"></i>
+                      注册
+                    </button>
+                </header>
+                <div class="am-panel-bd">
+                    <div class="am-g">
+                        <form method="post" class="am-form" action="{{ url_for('view_login') }}">
+                            <label for="email">用户名:</label>
+                            <input type="text" name="username" id="email" value="">
+                            <br>
+                            <label for="password">密码:</label>
+                            <input type="password" name="password" id="password" value="">
+                            <br>
+                            <label for="remember-me">
+                                <input id="remember-me" type="checkbox">记住密码</label>
+                            <br />
+                            <div class="am-cf">
+                                <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
+                                <input type="submit" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <p style="text-align: center;">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+        </div>
+    </body>
+    <script type="text/javascript" src="static\lib\jquery\jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        //.am-active
+        $("button.am-btn").click(function(){
+          if (!$(this).hasClass('am-active')) {
+            $("button.am-btn").removeClass('am-active')
+            $(this).addClass('am-active')
+          }
+        });
+      });
+    </script>
+    <script type="text/javascript" src="static\js\login.js"></script>
+
+</html>
