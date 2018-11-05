@@ -16,3 +16,13 @@ git push Web master
 
 #  推送更新
 git pull origin master
+
+
+# 操作别人的代码
+# 添加上游
+git remote add upstream 上游地址
+# 上游更新
+git fetch upstream master
+# 合并到自己代码
+git merge upstream/master
+
